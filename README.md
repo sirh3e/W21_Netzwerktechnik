@@ -5,6 +5,24 @@ During an internship at the TEKO school, the establishment of a network was put 
 
 ## Hardware configuration
 
+Since the Pi's are on factory settings, the hostnames must still be adjusted, otherwise no identification in the network can be guaranteed. an ssh access would be impossible with identical hostnames, if one uses the syntax user@hostname.
+
+That can be just fine. 2 servers so requests are sent round robin to them. Most extreme example www.google.com are many many servers.
+
+Of course there is a second mechanism so maintenance can adress a specific server individual.
+
+We change the hostname as follows:
+
+```
+$ sudo hostname rpi1
+```
+
+And for the second Pi:
+
+```
+$ sudo hostname rpi2
+```
+
 We use 2 RPi's Model 3B. Since these devices only had one LAN (RJ-45) port, we used additional LAN ports via USB 3.0.
 
 However, this must be configured correctly as a new ethernet port. To do this please open the following configuration with sudo right.
