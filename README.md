@@ -14,13 +14,13 @@ Of course there is a second mechanism so maintenance can adress a specific serve
 We change the hostname as follows:
 
 ```
-$ sudo hostname rpi1
+$ sudo hostname 0xdeadcode0
 ```
 
 And for the second Pi:
 
 ```
-$ sudo hostname rpi2
+$ sudo hostname 0xdeadcode1
 ```
 
 We use 2 RPi's Model 3B. Since these devices only had one LAN (RJ-45) port, we used additional LAN ports via USB 3.0.
