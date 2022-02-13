@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -ex
 
 # flush all existing chains and delete non default-chains
 iptables -F
