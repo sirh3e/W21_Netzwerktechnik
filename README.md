@@ -5,9 +5,9 @@ During an internship at the TEKO school, the establishment of a network was put 
 
 ## Hardware configuration
 
-Since the Pi's are on factory settings, the hostnames must still be adjusted, otherwise no identification in the network can be guaranteed. an ssh access would be impossible with identical hostnames, if one uses the syntax user@hostname.
+Since the Pi's are on factory settings, the hostnames must still be adjusted, otherwise no identification in the network can be guaranteed. An ssh access would be impossible with identical hostnames, if one uses the syntax user@hostname.
 
-That can be just fine. 2 servers so requests are sent round robin to them. Most extreme example www.google.com are many many servers.
+That can be just fine. Two servers so requests are sent round robin to them. Most extreme example www.google.com are plenty of servers.
 
 Of course there is a second mechanism so maintenance can adress a specific server individual.
 
@@ -23,7 +23,7 @@ And for the second Pi:
 $ sudo hostname 0xdeadcode1
 ```
 
-We use 2 RPi's Model 3B. Since these devices only had one LAN (RJ-45) port, we used additional LAN ports via USB 3.0.
+We are using 2 RPi's of type 3B. Since these devices only had one LAN (RJ-45) port, we used additional LAN ports via USB 3.0.
 
 However, this must be configured correctly as a new ethernet port. To do this please open the following configuration with sudo right.
 ```
@@ -40,7 +40,7 @@ iface usb02 inet static
         broadcast 10.255.255.255
         gateway 10.0.0.1
 ```
-We configure the onBoard Ethernet port according to the network diagram as follows.
+We configure the onboard Ethernet port according to the network diagram as follows.
 
 ```
 allow-hotplug eth0
@@ -77,7 +77,7 @@ Our Rasperry PI's now has two fully functional ethernet ports and is ready to be
 ---
 
 ## Preparations
-For the Raspberry Pi, the firewall iptables is already on board, but not configured. If you have your single board computer directly connected to the internet, you should enable the firewall to increase the protection of the system. In the following an example configuration for a statefull firewall is shown. This may vary depending on the intended use and in no way claims to be complete. It is advisable to keep a current backup in order to quickly return to the original state in a worst-case scenario.
+For the Raspberry Pi, the firewall iptables is already onboard, but not configured yet. If you have your single board computer directly connected to the internet, you should enable the firewall to increase the protection of the system. In the following an example configuration for a statefull firewall is shown. This may vary depending on the intended use and in no way claims to be complete. It is advisable to keep a current backup in order to quickly return to the original state in a worst-case scenario.
 
 
 The first step is to create a configuration directory for iptables.
@@ -98,7 +98,8 @@ The following open-source script was used as a reference and adapted to our need
 >https://gist.github.com/heartnet/921615
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
+set -ex
 
 # flush all existing chains and delete non default-chains
 iptables -F
@@ -196,7 +197,7 @@ To check the status of the firewall, the services can be queried.
 $ systemctl status iptables ip6tables
 ```
 
-The firewall is configured with this and should do its job from now on.
+The firewall is configured from now, with this and should do its job from now on.
 
 ## Quintessence
 Unfortunately, the project could not be completed. The reasons were many and varied. Primarily, there was too little time available. However, we really enjoyed the opportunity to physically come to the school again and experience a professional exchange.
